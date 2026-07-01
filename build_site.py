@@ -5,7 +5,7 @@ import os, re, glob, html as html_mod
 from pathlib import Path
 from markdown_it import MarkdownIt
 
-MD = MarkdownIt()
+MD = MarkdownIt('default', {'linkify': False})
 
 BASE = Path(__file__).parent
 OUT = BASE / "_site"
@@ -153,6 +153,8 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   #content li {{ margin: 0.2rem 0; }}
   .broken-link {{ color: #c0392b; font-weight: bold; text-decoration: line-through; }}
   .fuzzy {{ color: #d4a017; font-style: italic; }}
+  .lamina-link {{ display: inline-block; background: #1a5276; color: #fff !important; padding: 0.3rem 0.8rem; border-radius: 4px; text-decoration: none; font-size: 0.9rem; }}
+  .lamina-link:hover {{ background: #2980b9; }}
   #back-to-top {{
     position: fixed; bottom: 1.5rem; right: 1.5rem;
     background: #1a1a2e; color: #fff; border: none;
@@ -174,6 +176,13 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </div>
 <div id="content">
   {content}
+
+<hr>
+<footer style="text-align:center;font-size:0.85rem;padding:1rem 0;color:#666;border-top:1px solid #e0e0e0;margin-top:1.5rem;">
+  <p><a href="index.html">← Volver al inicio</a></p>
+  <p>Elaborado por <strong>La Nueve</strong></p>
+</footer>
+
 </div>
 </div>
 <button id="back-to-top" onclick="window.scrollTo({{top:0,behavior:'smooth'}})" title="Volver arriba">↑</button>

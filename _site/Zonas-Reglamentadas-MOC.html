@@ -42,13 +42,13 @@
   #content pre { background: #f5f5f0; padding: 0.8rem; border-radius: 4px; overflow-x: auto; font-size: 0.85rem; }
   #content a { color: #1a5276; }
   #content a:hover { color: #2980b9; }
-  .lamina-link { display: inline-block; background: #1a5276; color: #fff !important; padding: 0.3rem 0.8rem; border-radius: 4px; text-decoration: none; font-size: 0.9rem; }
-  .lamina-link:hover { background: #2980b9; }
   #content blockquote { border-left: 3px solid #2d4059; padding-left: 1rem; margin: 1rem 0; color: #555; font-style: italic; }
   #content ul, #content ol { margin: 0.5rem 0; padding-left: 1.5rem; }
   #content li { margin: 0.2rem 0; }
   .broken-link { color: #c0392b; font-weight: bold; text-decoration: line-through; }
   .fuzzy { color: #d4a017; font-style: italic; }
+  .lamina-link { display: inline-block; background: #1a5276; color: #fff !important; padding: 0.3rem 0.8rem; border-radius: 4px; text-decoration: none; font-size: 0.9rem; }
+  .lamina-link:hover { background: #2980b9; }
   #back-to-top {
     position: fixed; bottom: 1.5rem; right: 1.5rem;
     background: #1a1a2e; color: #fff; border: none;
@@ -109,7 +109,6 @@
     <li><a href="ZR12.html">Zr12</a></li>
     <li><a href="ZR13.html">Zr13</a></li>
     <li><a href="ZR14.html">Zr14</a></li>
-    <li><a href="ZR15.html">Zr15</a></li>
     <li><a href="ZR16.html">Zr16</a></li>
     <li><a href="ZR17.html">Zr17</a></li>
     <li><a href="ZR18.html">Zr18</a></li>
@@ -140,80 +139,264 @@
 <div id="content">
   <h1>📋 Zonas Reglamentadas — Índice</h1>
 <h2>Listado Completo</h2>
-<p>| # | Zona | Nombre/Localización | Categoría | Lámina |
-|---|------|--------------------|-----------|--------|
-| 1 | <a href="ZR01.html">Zr01</a> | Centro | Urbano consolidado | Nº17 |
-| 2 | <a href="ZR02.html">Zr02</a> | Pericentro | Urbano consolidado | Nº18 |
-| 3 | <a href="ZR03.html">Zr03</a> | AFE | Urbano consolidado | Nº19 |
-| 4 | <a href="ZR04.html">Zr04</a> | Crecimiento oeste | Urbano consolidado | Nº20 |
-| 5 | <a href="ZR05.html">Zr05</a> | Este de Ruta 5 | Urbano consolidado | Nº21 |
-| 6 | <a href="ZR06.html">Zr06</a> | Barrio Santa Isabel | Urbano consolidado | Nº22 |
-| 7 | <a href="ZR07.html">Zr07</a> | La Matutina | Urbano consolidado | Nº23 |
-| 8 | <a href="ZR08.html">Zr08</a> | Topografía particular | Urbano consolidado | Nº24 |
-| 9 | <a href="ZR09.html">Zr09</a> | Barrio Santángelo | Urbano no consolidado | Nº25 |
-| 10 | <a href="ZR10.html">Zr10</a> | Expansión oeste | Urbano no consolidado | Nº26 |
-| 11 | <a href="ZR11.html">Zr11</a> | Suburbano este | Suburbano residencial | Nº27 |
-| 12 | <a href="ZR12.html">Zr12</a> | Transición | Suburbano residencial | Nº28 |
-| 13 | <a href="ZR13.html">Zr13</a> | Transición sur | Suburbano residencial | Nº29 |
-| 14 | <a href="ZR14.html">Zr14</a> | Balneario Iporá | Urbano consolidado | Nº30 |
-| 15 | <a href="ZR16.html">Zr16</a> | Industrial | Suburbano industrial | Nº31 |
-| 16 | <a href="ZR17.html">Zr17</a> | Zona Logística | Suburbano logístico | Nº32 |
-| 17 | <a href="ZR18.html">Zr18</a> | Lindero Min. Interior | Urbano consolidado | Nº33 |
-| 18 | <a href="ZR19.html">Zr19</a> | Barrio jardín | Urbano consolidado | Nº34 |
-| 19 | <a href="ZR20.html">Zr20</a> | Gradiente densidades | Urbano no consolidado | Nº35 |
-| 20 | <a href="ZR21.html">Zr21</a> | Iporá turístico | Suburbano turístico | Nº36 |
-| 21 | <a href="ZR22.html">Zr22</a> | Iporá residencial | Suburbano residencial | Nº37 |
-| 22 | <a href="ZR23.html">Zr23</a> | Paso Bonilla | Suburbano residencial | Nº38 |
-| 23 | <a href="ZR24.html">Zr24</a> | Industrial | Suburbano industrial | Nº39 |</p>
+
+  /* ZR Table */
+  .zr-table-wrapper { overflow-x: auto; margin: 1rem 0; }
+  .zr-table { border-collapse: collapse; width: 100%; font-size: 0.9rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .zr-table thead th { background: #1a1a2e; color: #fff; padding: 0.6rem 0.8rem; text-align: left; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  .zr-table thead th:first-child { border-radius: 6px 0 0 0; }
+  .zr-table thead th:last-child { border-radius: 0 6px 0 0; }
+  .zr-table tbody tr { border-bottom: 1px solid #e8e8e0; transition: background 0.15s; }
+  .zr-table tbody tr:hover { background: #eef4f8; }
+  .zr-table tbody tr:nth-child(even) { background: #f8f8f4; }
+  .zr-table tbody tr:nth-child(even):hover { background: #eef4f8; }
+  .zr-table td { padding: 0.5rem 0.8rem; vertical-align: middle; }
+  .zr-num { width: 2rem; color: #888; font-size: 0.8rem; text-align: center; }
+  .zr-code { font-weight: 600; }
+  .zr-code a { color: #1a5276; text-decoration: none; }
+  .zr-code a:hover { text-decoration: underline; color: #2980b9; }
+  .zr-name { color: #444; }
+  .zr-cat { font-size: 0.8rem; }
+  .zr-lam { text-align: center; }
+  .zr-lam a { display: inline-block; background: #e8eef4; color: #1a5276; padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.8rem; text-decoration: none; }
+  .zr-lam a:hover { background: #1a5276; color: #fff; }
+  .zr-cat-uc { color: #1a5276; font-weight: 500; }
+  .zr-cat-unc { color: #b8860b; font-weight: 500; }
+  .zr-cat-sr { color: #2d6a4f; font-weight: 500; }
+  .zr-cat-si { color: #6b3fa0; font-weight: 500; }
+  .zr-cat-sl { color: #c0392b; font-weight: 500; }
+  .zr-cat-st { color: #d4850b; font-weight: 500; }
+  @media (max-width: 600px) {
+    .zr-table { font-size: 0.8rem; }
+    .zr-table td, .zr-table th { padding: 0.4rem 0.5rem; }
+  }
+
+<div class="zr-table-wrapper">
+<table class="zr-table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Zona</th>
+      <th>Nombre / Localización</th>
+      <th>Categoría</th>
+      <th>Lámina</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="zr-num">1</td>
+      <td class="zr-code"><a href="ZR01.html">ZR01</a></td>
+      <td class="zr-name">Centro</td>
+      <td class="zr-cat"><span class="zr-cat-uc">Sin datos</span></td>
+      <td class="zr-lam"><a href="laminas/mapa-176.jpg" target="_blank">Nº17</a></td>
+    </tr>
+    <tr>
+      <td class="zr-num">2</td>
+      <td class="zr-code"><a href="ZR02.html">ZR02</a></td>
+      <td class="zr-name">Pericentro</td>
+      <td class="zr-cat"><span class="zr-cat-uc">Sin datos</span></td>
+      <td class="zr-lam"><a href="laminas/mapa-177.jpg" target="_blank">Nº18</a></td>
+    </tr>
+    <tr>
+      <td class="zr-num">3</td>
+      <td class="zr-code"><a href="ZR03.html">ZR03</a></td>
+      <td class="zr-name">AFE</td>
+      <td class="zr-cat"><span class="zr-cat-uc">Sin datos</span></td>
+      <td class="zr-lam"><a href="laminas/mapa-178.jpg" target="_blank">Nº19</a></td>
+    </tr>
+    <tr>
+      <td class="zr-num">4</td>
+      <td class="zr-code"><a href="ZR04.html">ZR04</a></td>
+      <td class="zr-name">Crecimiento oeste</td>
+      <td class="zr-cat"><span class="zr-cat-uc">Sin datos</span></td>
+      <td class="zr-lam"><a href="laminas/mapa-179.jpg" target="_blank">Nº20</a></td>
+    </tr>
+    <tr>
+      <td class="zr-num">5</td>
+      <td class="zr-code"><a href="ZR05.html">ZR05</a></td>
+      <td class="zr-name">Este de Ruta 5</td>
+      <td class="zr-cat"><span class="zr-cat-uc">Sin datos</span></td>
+      <td class="zr-lam"><a href="laminas/mapa-180.jpg" target="_blank">Nº21</a></td>
+    </tr>
+    <tr>
+      <td class="zr-num">6</td>
+      <td class="zr-code"><a href="ZR06.html">ZR06</a></td>
+      <td class="zr-name">Santa Isabel</td>
+      <td class="zr-cat"><span class="zr-cat-uc">Sin datos</span></td>
+      <td class="zr-lam"><a href="laminas/mapa-181.jpg" target="_blank">Nº22</a></td>
+    </tr>
+    <tr>
+      <td class="zr-num">7</td>
+      <td class="zr-code"><a href="ZR07.html">ZR07</a></td>
+      <td class="zr-name">La Matutina</td>
+      <td class="zr-cat"><span class="zr-cat-uc">Sin datos</span></td>
+      <td class="zr-lam"><a href="laminas/mapa-182.jpg" target="_blank">Nº23</a></td>
+    </tr>
+    <tr>
+      <td class="zr-num">8</td>
+      <td class="zr-code"><a href="ZR08.html">ZR08</a></td>
+      <td class="zr-name">Topografía particular</td>
+      <td class="zr-cat"><span class="zr-cat-uc">Sin datos</span></td>
+      <td class="zr-lam"><a href="laminas/mapa-183.jpg" target="_blank">Nº24</a></td>
+    </tr>
+    <tr>
+      <td class="zr-num">9</td>
+      <td class="zr-code"><a href="ZR09.html">ZR09</a></td>
+      <td class="zr-name">Santángelo</td>
+      <td class="zr-cat"><span class="zr-cat-uc">Sin datos</span></td>
+      <td class="zr-lam"><a href="laminas/mapa-184.jpg" target="_blank">Nº25</a></td>
+    </tr>
+    <tr>
+      <td class="zr-num">10</td>
+      <td class="zr-code"><a href="ZR10.html">ZR10</a></td>
+      <td class="zr-name">Expansión oeste</td>
+      <td class="zr-cat"><span class="zr-cat-uc">Sin datos</span></td>
+      <td class="zr-lam"><a href="laminas/gral-131.jpg" target="_blank">Nº26</a></td>
+    </tr>
+    <tr>
+      <td class="zr-num">11</td>
+      <td class="zr-code"><a href="ZR11.html">ZR11</a></td>
+      <td class="zr-name">Suburbano este</td>
+      <td class="zr-cat"><span class="zr-cat-uc">Sin datos</span></td>
+      <td class="zr-lam"><a href="laminas/gral-132.jpg" target="_blank">Nº27</a></td>
+    </tr>
+    <tr>
+      <td class="zr-num">12</td>
+      <td class="zr-code"><a href="ZR12.html">ZR12</a></td>
+      <td class="zr-name">Transición</td>
+      <td class="zr-cat"><span class="zr-cat-uc">Sin datos</span></td>
+      <td class="zr-lam"><a href="laminas/gral-133.jpg" target="_blank">Nº28</a></td>
+    </tr>
+    <tr>
+      <td class="zr-num">13</td>
+      <td class="zr-code"><a href="ZR13.html">ZR13</a></td>
+      <td class="zr-name">Transición sur</td>
+      <td class="zr-cat"><span class="zr-cat-uc">Sin datos</span></td>
+      <td class="zr-lam"><a href="laminas/gral-134.jpg" target="_blank">Nº29</a></td>
+    </tr>
+    <tr>
+      <td class="zr-num">14</td>
+      <td class="zr-code"><a href="ZR14.html">ZR14</a></td>
+      <td class="zr-name">Balneario Iporá</td>
+      <td class="zr-cat"><span class="zr-cat-uc">Sin datos</span></td>
+      <td class="zr-lam"><a href="laminas/gral-135.jpg" target="_blank">Nº30</a></td>
+    </tr>
+    <tr>
+      <td class="zr-num">15</td>
+      <td class="zr-code"><a href="ZR16.html">ZR16</a></td>
+      <td class="zr-name">Industrial</td>
+      <td class="zr-cat"><span class="zr-cat-uc">Sin datos</span></td>
+      <td class="zr-lam"><a href="laminas/gral-136.jpg" target="_blank">Nº31</a></td>
+    </tr>
+    <tr>
+      <td class="zr-num">16</td>
+      <td class="zr-code"><a href="ZR17.html">ZR17</a></td>
+      <td class="zr-name">Zona Logística</td>
+      <td class="zr-cat"><span class="zr-cat-uc">Sin datos</span></td>
+      <td class="zr-lam"><a href="laminas/gral-137.jpg" target="_blank">Nº32</a></td>
+    </tr>
+    <tr>
+      <td class="zr-num">17</td>
+      <td class="zr-code"><a href="ZR18.html">ZR18</a></td>
+      <td class="zr-name">Lindero Min. Interior</td>
+      <td class="zr-cat"><span class="zr-cat-uc">Sin datos</span></td>
+      <td class="zr-lam"><a href="laminas/gral-138.jpg" target="_blank">Nº33</a></td>
+    </tr>
+    <tr>
+      <td class="zr-num">18</td>
+      <td class="zr-code"><a href="ZR19.html">ZR19</a></td>
+      <td class="zr-name">Barrio jardín</td>
+      <td class="zr-cat"><span class="zr-cat-uc">Sin datos</span></td>
+      <td class="zr-lam"><a href="laminas/gral-139.jpg" target="_blank">Nº34</a></td>
+    </tr>
+    <tr>
+      <td class="zr-num">19</td>
+      <td class="zr-code"><a href="ZR20.html">ZR20</a></td>
+      <td class="zr-name">Gradiente densidades</td>
+      <td class="zr-cat"><span class="zr-cat-uc">Sin datos</span></td>
+      <td class="zr-lam"><a href="laminas/gral-140.jpg" target="_blank">Nº35</a></td>
+    </tr>
+    <tr>
+      <td class="zr-num">20</td>
+      <td class="zr-code"><a href="ZR21.html">ZR21</a></td>
+      <td class="zr-name">Iporá turístico</td>
+      <td class="zr-cat"><span class="zr-cat-uc">Sin datos</span></td>
+      <td class="zr-lam"><a href="laminas/gral-141.jpg" target="_blank">Nº36</a></td>
+    </tr>
+    <tr>
+      <td class="zr-num">21</td>
+      <td class="zr-code"><a href="ZR22.html">ZR22</a></td>
+      <td class="zr-name">Iporá residencial</td>
+      <td class="zr-cat"><span class="zr-cat-uc">Sin datos</span></td>
+      <td class="zr-lam"><a href="laminas/gral-142.jpg" target="_blank">Nº37</a></td>
+    </tr>
+    <tr>
+      <td class="zr-num">22</td>
+      <td class="zr-code"><a href="ZR23.html">ZR23</a></td>
+      <td class="zr-name">Paso Bonilla</td>
+      <td class="zr-cat"><span class="zr-cat-uc">Sin datos</span></td>
+      <td class="zr-lam"><a href="laminas/gral-143.jpg" target="_blank">Nº38</a></td>
+    </tr>
+    <tr>
+      <td class="zr-num">23</td>
+      <td class="zr-code"><a href="ZR24.html">ZR24</a></td>
+      <td class="zr-name">Industrial</td>
+      <td class="zr-cat"><span class="zr-cat-uc">Sin datos</span></td>
+      <td class="zr-lam"><a href="laminas/gral-144.jpg" target="_blank">Nº39</a></td>
+    </tr>
+  </tbody>
+</table>
+</div>
 <h2>Agrupaciones</h2>
 <h3>Centro y pericentro</h3>
 <ul>
-<li><a href="ZR01.html">Zr01</a> (Centro), <a href="ZR02.html">Zr02</a> (Pericentro), <a href="ZR03.html">Zr03</a> (AFE)</li>
+<li>&lt;a href=&quot;ZR01.html&quot;&gt;Zr01&lt;/a&gt; (Centro), &lt;a href=&quot;ZR02.html&quot;&gt;Zr02&lt;/a&gt; (Pericentro), &lt;a href=&quot;ZR03.html&quot;&gt;Zr03&lt;/a&gt; (AFE)</li>
 <li>Áreas de preferencia comercial, construcción en altura</li>
 </ul>
 <h3>Crecimiento oeste</h3>
 <ul>
-<li><a href="ZR04.html">Zr04</a>, <a href="ZR07.html">Zr07</a> (La Matutina), <a href="ZR09.html">Zr09</a> (Santángelo), <a href="ZR10.html">Zr10</a></li>
+<li>&lt;a href=&quot;ZR04.html&quot;&gt;Zr04&lt;/a&gt;, &lt;a href=&quot;ZR07.html&quot;&gt;Zr07&lt;/a&gt; (La Matutina), &lt;a href=&quot;ZR09.html&quot;&gt;Zr09&lt;/a&gt; (Santángelo), &lt;a href=&quot;ZR10.html&quot;&gt;Zr10&lt;/a&gt;</li>
 <li>Desde consolidado hasta no consolidado</li>
 </ul>
 <h3>Este de Ruta 5</h3>
 <ul>
-<li><a href="ZR05.html">Zr05</a>, <a href="ZR06.html">Zr06</a> (Santa Isabel)</li>
+<li>&lt;a href=&quot;ZR05.html&quot;&gt;Zr05&lt;/a&gt;, &lt;a href=&quot;ZR06.html&quot;&gt;Zr06&lt;/a&gt; (Santa Isabel)</li>
 <li>Control de extensión, zona inundable</li>
 </ul>
 <h3>Transición suburbana</h3>
 <ul>
-<li><a href="ZR11.html">Zr11</a>, <a href="ZR12.html">Zr12</a>, <a href="ZR13.html">Zr13</a></li>
+<li>&lt;a href=&quot;ZR11.html&quot;&gt;Zr11&lt;/a&gt;, &lt;a href=&quot;ZR12.html&quot;&gt;Zr12&lt;/a&gt;, &lt;a href=&quot;ZR13.html&quot;&gt;Zr13&lt;/a&gt;</li>
 <li>Muy baja densidad, agro pequeña escala</li>
 </ul>
 <h3>Pieza Iporá</h3>
 <ul>
-<li><a href="ZR14.html">Zr14</a> (Balneario), <a href="ZR21.html">Zr21</a> (Turístico), <a href="ZR22.html">Zr22</a> (Residencial)</li>
+<li>&lt;a href=&quot;ZR14.html&quot;&gt;Zr14&lt;/a&gt; (Balneario), &lt;a href=&quot;ZR21.html&quot;&gt;Zr21&lt;/a&gt; (Turístico), &lt;a href=&quot;ZR22.html&quot;&gt;Zr22&lt;/a&gt; (Residencial)</li>
 <li>
 <ul>
-<li><a href="ZE09.html">Ze09</a>, <a href="ZE13.html">Ze13</a>, <a href="ZE20.html">Ze20</a></li>
+<li>&lt;a href=&quot;ZE09.html&quot;&gt;Ze09&lt;/a&gt;, &lt;a href=&quot;ZE13.html&quot;&gt;Ze13&lt;/a&gt;, &lt;a href=&quot;ZE20.html&quot;&gt;Ze20&lt;/a&gt;</li>
 </ul>
 </li>
 </ul>
 <h3>Industrial-Logístico</h3>
 <ul>
-<li><a href="ZR16.html">Zr16</a> (Forestación), <a href="ZR17.html">Zr17</a> (Logística), <a href="ZR24.html">Zr24</a> (Industrial)</li>
+<li>&lt;a href=&quot;ZR16.html&quot;&gt;Zr16&lt;/a&gt; (Forestación), &lt;a href=&quot;ZR17.html&quot;&gt;Zr17&lt;/a&gt; (Logística), &lt;a href=&quot;ZR24.html&quot;&gt;Zr24&lt;/a&gt; (Industrial)</li>
 <li>
 <ul>
-<li><a href="ZE14.html">Ze14</a>, <a href="ZE17.html">Ze17</a></li>
+<li>&lt;a href=&quot;ZE14.html&quot;&gt;Ze14&lt;/a&gt;, &lt;a href=&quot;ZE17.html&quot;&gt;Ze17&lt;/a&gt;</li>
 </ul>
 </li>
 </ul>
 <h3>Consolidación norte</h3>
 <ul>
-<li><a href="ZR18.html">Zr18</a>, <a href="ZR19.html">Zr19</a>, <a href="ZR20.html">Zr20</a></li>
+<li>&lt;a href=&quot;ZR18.html&quot;&gt;Zr18&lt;/a&gt;, &lt;a href=&quot;ZR19.html&quot;&gt;Zr19&lt;/a&gt;, &lt;a href=&quot;ZR20.html&quot;&gt;Zr20&lt;/a&gt;</li>
 <li>Barrio jardín, gradiente de densidades</li>
 </ul>
 <h3>Paso Bonilla</h3>
 <ul>
-<li><a href="ZR23.html">Zr23</a></li>
+<li>&lt;a href=&quot;ZR23.html&quot;&gt;Zr23&lt;/a&gt;</li>
 <li>Densificación, camiones forestales</li>
 </ul>
+
 
 <hr>
 <footer style="text-align:center;font-size:0.85rem;padding:1rem 0;color:#666;border-top:1px solid #e0e0e0;margin-top:1.5rem;">
