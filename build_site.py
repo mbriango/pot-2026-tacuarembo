@@ -119,6 +119,23 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 <style>
   * {{ margin: 0; padding: 0; box-sizing: border-box; }}
   body {{ font-family: 'Segoe UI', system-ui, sans-serif; background: #f5f5f0; color: #222; }}
+  
+  /* ── hamburger button (mobile only) ── */
+  #menu-toggle {{
+    display: none;
+    position: fixed; top: 0.7rem; left: 0.7rem; z-index: 1001;
+    background: #1a1a2e; color: #fff; border: none;
+    width: 40px; height: 40px; border-radius: 8px;
+    font-size: 1.4rem; cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  }}
+  #menu-overlay {{
+    display: none;
+    position: fixed; inset: 0; z-index: 998;
+    background: rgba(0,0,0,0.4);
+  }}
+  #menu-overlay.show {{ display: block; }}
+
   #layout {{ display: flex; min-height: 100vh; }}
   #sidebar {{
     width: 280px; background: #1a1a2e; color: #eee; padding: 1.2rem;
@@ -157,6 +174,11 @@ HTML_TEMPLATE = """<!DOCTYPE html>
   #content blockquote {{ border-left: 3px solid #2d4059; padding-left: 1rem; margin: 1rem 0; color: #555; font-style: italic; }}
   #content ul, #content ol {{ margin: 0.5rem 0; padding-left: 1.5rem; }}
   #content li {{ margin: 0.2rem 0; }}
+  
+  /* responsive tables */
+  .table-wrap {{ overflow-x: auto; margin: 1rem 0; }}
+  #content table {{ min-width: 500px; }}
+
   .broken-link {{ color: #c0392b; font-weight: bold; text-decoration: line-through; }}
   .fuzzy {{ color: #d4a017; font-style: italic; }}
   .lamina-link {{ display: inline-block; background: #1a5276; color: #fff !important; padding: 0.3rem 0.8rem; border-radius: 4px; text-decoration: none; font-size: 0.9rem; }}
@@ -168,15 +190,31 @@ HTML_TEMPLATE = """<!DOCTYPE html>
     cursor: pointer; font-size: 1.2rem; display: none;
   }}
   #back-to-top:hover {{ background: #2d4059; }}
+
+  /* ── mobile: hamburger menu ── */
   @media (max-width: 768px) {{
+    #menu-toggle {{ display: block; }}
     #layout {{ flex-direction: column; }}
-    #sidebar {{ width: 100%; height: auto; position: relative; }}
-    #content {{ margin: 0.5rem; padding: 1rem; }}
+    #sidebar {{
+      position: fixed; top: 0; left: -300px;
+      width: 280px; height: 100vh; z-index: 999;
+      transition: left 0.25s ease;
+      box-shadow: 4px 0 12px rgba(0,0,0,0.2);
+    }}
+    #sidebar.open {{ left: 0; }}
+    #content {{
+      margin: 0.5rem; padding: 1rem;
+      padding-top: 3.5rem;
+    }}
+    /* inline images on mobile */
+    #content img {{ max-width: 100%; height: auto; }}
   }}
 </style>
 </head>
 <body>
 <div id="layout">
+<button id="menu-toggle" onclick="toggleMenu()" title="Menú">☰</button>
+<div id="menu-overlay" onclick="toggleMenu()"></div>
 <div id="sidebar">
   {nav}
 </div>
@@ -193,8 +231,13 @@ HTML_TEMPLATE = """<!DOCTYPE html>
 </div>
 <button id="back-to-top" onclick="window.scrollTo({{top:0,behavior:'smooth'}})" title="Volver arriba">↑</button>
 <script>
+  function toggleMenu() {{
+    document.getElementById('sidebar').classList.toggle('open');
+    document.getElementById('menu-overlay').classList.toggle('show');
+  }}
   window.addEventListener('scroll', function(){{
-    document.getElementById('back-to-top').style.display = window.scrollY > 300 ? 'block' : 'none';
+    const btn = document.getElementById('back-to-top');
+    if (btn) btn.style.display = window.scrollY > 300 ? 'block' : 'none';
   }});
 </script>
 </body>
