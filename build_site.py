@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build a navigable HTML site from Obsidian POT markdown files."""
 
-import os, re, glob, html as html_mod
+import os, re, glob, shutil, html as html_mod
 from pathlib import Path
 from markdown_it import MarkdownIt
 
@@ -46,21 +46,21 @@ def resolve_wikilink(text):
         for s in notes:
             if s.lower() == slug or s.lower().replace("_", "-") == slug:
                 href = f"{s}.html"
-                return f'<a href="{href}">{html_mod.escape(label.strip())}</a>'
+                return f'[{html_mod.escape(label.strip())}]({href})'
         # try fuzzy
         for s in notes:
             if slug in s.lower() or s.lower() in slug:
                 href = f"{s}.html"
-                return f'<a href="{href}" class="fuzzy">{html_mod.escape(label.strip())}</a>'
-        return f'<span class="broken-link">{html_mod.escape(label.strip())}</span>'
-    return re.sub(r'\[\[(.+?)\]\]', repl, text)
+                return f'[{html_mod.escape(label.strip())}]({href})'
+        return f'~~{html_mod.escape(label.strip())}~~ (enlace roto)'
+    return re.sub(r'(?<!!)\[\[(.+?)\]\]', repl, text)
 
 # ── convert markdown to html ───────────────────────────────────────
 def md_to_html(md_text):
     # pre-process wikilinks
     md_text = resolve_wikilink(md_text)
     # fix relative image paths
-    md_text = re.sub(r'!\[\[([^\]]+)\]\]', r'![\1](\1)', md_text)
+    md_text = re.sub(r'!\[\[([^\]]+)\]\]', r'![\1](laminas/\1)', md_text)
     html = MD.render(md_text)
     return html
 
@@ -100,6 +100,12 @@ NAV_HTML = """
     <li><a href="Categorizacion-Suelo.html">🏷️ Categorías</a></li>
     <li><a href="Estructura-Modelo-Territorial.html">🏗️ Modelo</a></li>
     <li><a href="Analisis-Critico.html">⚠️ Análisis Crítico</a></li>
+  </ul>
+</div>
+<hr>
+<div class="nav-section">
+  <ul class="nav-list">
+    <li><a href="Articulado-Completo.html">📜 Articulado Completo</a></li>
   </ul>
 </div>
 """
@@ -214,6 +220,17 @@ if index_md.exists():
     html_body = md_to_html(md_content)
     page = HTML_TEMPLATE.format(title=html_mod.escape("POT Tacuarembó — Navegable"), nav=NAV_HTML, content=html_body)
     (OUT / "index.html").write_text(page, encoding="utf-8")
+
+# ── copy assets ──────────────────────────────────────────────────
+laminas_src = BASE / "Laminas"
+laminas_dst = OUT / "laminas"
+if laminas_src.exists():
+    laminas_dst.mkdir(parents=True, exist_ok=True)
+    for img in laminas_src.iterdir():
+        if img.suffix.lower() in (".jpg", ".jpeg", ".png", ".gif", ".webp"):
+            shutil.copy2(img, laminas_dst / img.name)
+    img_count = len(list(laminas_dst.iterdir()))
+    print(f"   {img_count} imágenes copiadas a _site/laminas/")
 
 count = len(list(OUT.glob("*.html")))
 print(f"✅ Sitio generado: {count} páginas HTML en {OUT}")

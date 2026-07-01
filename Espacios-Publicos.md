@@ -2,6 +2,9 @@
 
 Lámina 41 del POT. Red de espacios de dominio público y privado para recreación y circulación.
 
+![[gral-146.jpg]]
+*Lámina 41 — Sistema de Espacios Públicos*
+
 ## Componentes Principales
 
 - **Parque Lineal** sobre márgenes del río Tacuarembó Chico

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Riesgo-Inundacion.md",
+                "file": "Laminas-DINAGUA.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Riesgo-Inundacion"
+              "title": "Laminas-DINAGUA"
             }
           }
         ]
@@ -185,6 +185,16 @@
   },
   "active": "c493881a690f2f70",
   "lastOpenFiles": [
+    "_site/Lamina-03.html",
+    "_site/Lamina-02.html",
+    "Lamina-03.md",
+    "Lamina-02.md",
+    "Riesgo-Inundacion.md",
+    "Laminas-DINAGUA.md",
+    "POT-Tacuarembo-MOC.md",
+    "Lamina-04.md",
+    "Laminas-MOC.md",
+    "Lamina-01.md",
     "Zonas-Reglamentadas/ZR06.md",
     "Analisis-Critico.md",
     "_site/Laminas-DINAGUA.html",
@@ -197,12 +207,8 @@
     "Zonas-Especiales-MOC.md",
     "Sistema-Vial.md",
     "Categorizacion-Suelo.md",
-    "POT-Tacuarembo-MOC.md",
-    "Riesgo-Inundacion.md",
     "Zonas-Reglamentadas/ZR12.md",
     "Zonas-Especiales/ZE01.md",
-    "Laminas-MOC.md",
-    "Laminas-DINAGUA.md",
     "_site/index.html",
     "_site/ZR24.html",
     "_site/ZR23.html",
@@ -211,7 +217,6 @@
     "_site/ZR20.html",
     "_site/ZR19.html",
     "_site/ZR18.html",
-    "_site/ZR17.html",
     "Zonas-Reglamentadas/ZR01.md",
     "Zonas-Reglamentadas-MOC.md",
     "Zonas-Reglamentadas/ZR02.md",

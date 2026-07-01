@@ -14,7 +14,7 @@ Enclaves identificados en la Memoria Normativa, reconociendo actividades preexis
 | 14476R | Arboreal | — |
 | 8040R | Urubrama | — |
 | 14882R | Valetor (Paso Bonilla) | [[ZR23]] |
-| 12549R | Aserradero | [[ZR15]] |
+| 12549R | Aserradero | [[ZE20]] |
 | 20927 / 20928 | Aserradero | [[ZR17]]-A |
 | 14779 | Cabesas Bier | [[ZE16]] |
 | 11349 | Fábrica de quesos | [[ZE16]] |

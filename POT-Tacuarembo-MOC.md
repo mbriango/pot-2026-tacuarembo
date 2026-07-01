@@ -81,3 +81,7 @@
 
 > **Fuente**: Memoria Normativa Revisión POT 2025 (Cap. 7-8)
 > Revisado: Junio 2026
+
+---
+
+📜 → [[Articulado-Completo|Texto completo del articulado normativo]]
