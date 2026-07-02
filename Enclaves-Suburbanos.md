@@ -6,7 +6,7 @@ Enclaves identificados en la Memoria Normativa, reconociendo actividades preexis
 
 | Padrones | Actividad | Zona Ref. |
 |----------|-----------|-----------|
-| 3167R | Lumin | — |
+| 3167R | Maderera | — |
 | 776R | Hormigonera (Ruta 5) | — |
 | 14903R / 14904R / 15185R | Frigorífico Tacuarembó - Fenirol | — |
 | 11479R | Erro | — |
