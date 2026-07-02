@@ -60,7 +60,14 @@ def md_to_html(md_text):
     # pre-process wikilinks
     md_text = resolve_wikilink(md_text)
     # fix relative image paths
-    md_text = re.sub(r'!\[\[([^\]]+)\]\]', r'![\1](laminas/\1)', md_text)
+    # If image already has a path prefix (e.g., fichas/), use as-is
+    # Otherwise, default to laminas/
+    def fix_img_path(m):
+        img = m.group(1)
+        if '/' in img:
+            return f'![{img}]({img})'
+        return f'![{img}](laminas/{img})'
+    md_text = re.sub(r'!\[\[([^\]]+)\]\]', fix_img_path, md_text)
     html = MD.render(md_text)
     return html
 
@@ -274,6 +281,17 @@ if laminas_src.exists():
             shutil.copy2(img, laminas_dst / img.name)
     img_count = len(list(laminas_dst.iterdir()))
     print(f"   {img_count} imágenes copiadas a _site/laminas/")
+
+# ── copy fichas (zone data sheets) ────────────────────────────
+fichas_src = BASE / "fichas"
+fichas_dst = OUT / "fichas"
+if fichas_src.exists():
+    fichas_dst.mkdir(parents=True, exist_ok=True)
+    for img in fichas_src.iterdir():
+        if img.suffix.lower() in (".jpg", ".jpeg", ".png", ".gif", ".webp"):
+            shutil.copy2(img, fichas_dst / img.name)
+    ficha_count = len(list(fichas_dst.iterdir()))
+    print(f"   {ficha_count} fichas copiadas a _site/fichas/")
 
 count = len(list(OUT.glob("*.html")))
 print(f"✅ Sitio generado: {count} páginas HTML en {OUT}")
